@@ -18,6 +18,8 @@
 
     <!--/ /-------- My Styles --------/ /-->
     <link href="styles.css" rel="stylesheet" />
+
+    <script src="script.js" defer></script>
   </head>
 
   <body>
@@ -48,61 +50,6 @@
       switch to mile conversion
     </p>
 
-    <script>
-      var convertType = "miles";
-      var heading = document.querySelector("h1");
-      var into = document.querySelector("p");
-      var answerDiv = document.getElementById("Answer goes here");
-      var form = document.getElementById("convert");
-
-      //keydown event listener
-      document.addEventListener("keydown", function (event) {
-        var key = event.code;
-        // alert(key);
-        // if else statment required
-        if (key === "KeyK") {
-          convertType = "kilometers";
-          heading.innerHTML = "Kilometers to Miles Converter";
-          into.innerHTML =
-            "Type in a number of kilometers and click the button to convert the distance to miles.";
-          //change the heading
-          //change intro paragraph
-          //change value of convertType variable
-        } else if (key === "KeyM") {
-            //reuse code from the if statment and swap kilo and miles
-          convertType = "miles";
-          heading.innerHTML = "Miles to Kilometers Converter";
-          into.innerHTML =
-            "Type in a number of miles and click the button to convert the distance to kilometers.";
-        }
-      });
-      //submit even listener
-      form.addEventListener("submit", function () {
-
-        event.preventDefault();
-
-        var distance = parseFloat(document.getElementById("distance").value);
-
-        if( distance ){
-            //conversion miles to kilomoeters 1.609344
-            //conersion kilometers to miles 0.1621371192
-           if(convertType === "miles"){
-                var converted = (distance * 1.609344).toFixed(3);
-                answer.innerHTML = `${distance} miles converted to ${converted} kilometers`;
-           }
-           else {
-            var converted = (distance * 0.621371192).toFixed(3);
-            answer.innerHTML = `${distance} kilometers converted to ${converted} miles`;
-
-           }
-        }
-        else {
-            answer.innerHTML = "<h2>Please provide a number</h2>";
-            
-        }
-      });
-
-
-    </script>
+    
   </body>
 </html>
